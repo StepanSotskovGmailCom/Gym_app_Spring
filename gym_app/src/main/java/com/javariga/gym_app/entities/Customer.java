@@ -13,7 +13,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 public class Customer {
 
@@ -34,7 +33,13 @@ public class Customer {
     @Column(name = "customer_type_id")
     private String customerId;
 
-//    @OneToMany
-//    private Set<CustomerTrainers> customerTrainersList;
+    @OneToMany(mappedBy = "customer")
+    private Set<CustomerType> customerTypes;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<CustomerTrainers> customerTrainers;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<CustomerMembership> customerMemberships;
 
 }

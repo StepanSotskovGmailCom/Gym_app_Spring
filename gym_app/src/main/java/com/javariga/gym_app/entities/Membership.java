@@ -6,12 +6,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Table(name = "Membership")
 @Entity
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 
 public class Membership {
@@ -24,7 +24,8 @@ public class Membership {
     @Column(name = "membership_type")
     private String membershipType;
 
-    private Integer price;
+    private Float price;
 
-
+    @OneToMany(mappedBy = "membership")
+    private Set<CustomerMembership> customerMemberships;
 }

@@ -7,12 +7,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "Trainer")
 @Entity
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 public class Trainer {
 
