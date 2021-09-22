@@ -21,7 +21,7 @@ public class CustomerMembership {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Long id;
-    @Column(name = "membership_id")
+    @Column(name = "membership_id",insertable=false ,updatable = false)
     private Integer membershipId;
     @Column(name = "customer_id")
     private Integer customerId;

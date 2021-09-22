@@ -3,10 +3,8 @@ package com.javariga.gym_app.entities;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Table(name = "Customer")
@@ -31,15 +29,15 @@ public class Customer {
     @Column(name = "membership_id")
     private String membershipId;
     @Column(name = "customer_type_id")
-    private String customerId;
+    private String customerTypeId;
 
-    @OneToMany(mappedBy = "customer")
-    private Set<CustomerType> customerTypes;
-
-    @OneToMany(mappedBy = "customer")
-    private Set<CustomerTrainers> customerTrainers;
-
-    @OneToMany(mappedBy = "customer")
-    private Set<CustomerMembership> customerMemberships;
+//    @OneToMany(mappedBy = "customer")
+//    private Set<CustomerType> customerTypes;
+//
+//    @OneToMany(mappedBy = "customer")
+//    private Set<CustomerTrainers> customerTrainers;
+//
+//    @OneToMany(mappedBy = "customer")
+//    private Set<CustomerMembership> customerMemberships;
 
 }

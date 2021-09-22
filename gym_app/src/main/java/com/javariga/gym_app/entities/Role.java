@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 
 public class Role {

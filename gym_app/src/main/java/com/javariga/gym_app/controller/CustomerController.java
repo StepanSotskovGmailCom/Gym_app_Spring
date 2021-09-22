@@ -2,7 +2,6 @@ package com.javariga.gym_app.controller;
 
 import com.javariga.gym_app.entities.Customer;
 import com.javariga.gym_app.repository.CustomerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +12,14 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping(value = "/customer", produces = APPLICATION_JSON_VALUE)
 public class CustomerController {
 
+
+    private final CustomerRepository repository;
+
     @Autowired
-    private CustomerRepository repository;
+    public CustomerController(CustomerRepository repository) {
+        this.repository = repository;
+    }
+
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -22,9 +27,21 @@ public class CustomerController {
         return repository.save(customer);
     }
 
-    @GetMapping()
-    public String create() {
-        return "customer";
+    @GetMapping
+    public Customer getCustomer(@RequestParam Long id) {
+        return repository.findById(id).get();
     }
+
+    @PutMapping
+    public Customer updateCustomer(@RequestBody Customer customer) {
+        return repository.save(customer);
+    }
+
+    @DeleteMapping
+    public String deleteCustomer (@RequestParam Long id) {
+        repository.deleteById(id);
+        return "Customer with ID + " + id + " deleted";
+    }
+
 
 }
