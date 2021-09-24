@@ -24,12 +24,6 @@ public class Customer {
     private String customerSurname;
     @Column(name = "customer_email")
     private String customerEmail;
-    @Column(name = "trainer_id")
-    private String trainerId;
-    @Column(name = "membership_id")
-    private String membershipId;
-    @Column(name = "customer_type_id")
-    private String customerTypeId;
 
 //    @OneToMany(mappedBy = "customer")
 //    private Set<CustomerType> customerTypes;

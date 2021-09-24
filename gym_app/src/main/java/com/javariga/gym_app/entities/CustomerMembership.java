@@ -36,11 +36,11 @@ public class CustomerMembership {
     @Column(name ="memberhip_price" )
     private Integer membershipPrice;
 
-    @ManyToOne
-    private Customer customer;
-
-    @ManyToOne
-    private Membership membership;
+//    @ManyToOne
+//    private Customer customer;
+//
+//    @ManyToOne
+//    private Membership membership;
 
 
 }

@@ -1,6 +1,5 @@
 package com.javariga.gym_app.entities;
 
-
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -8,21 +7,21 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@Table(name = "Customer_trainers")
+@Table(name = "Perk")
 @Entity
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class CustomerTrainers {
+public class Perk {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "perk_id")
     private Long id;
-    @Column(name = "customer_id")
-    private Integer customerId;
-    @Column(name = "trainer_id")
-    private Integer trainerId;
+
+    @Column(name = "perk_name")
+    private String perkName;
+
 
 }

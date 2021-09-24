@@ -6,26 +6,22 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
 
-@Table(name = "Membership")
+@Table(name = "Administrator_Role")
 @Entity
 @Getter
 @Setter
+@ToString
 @RequiredArgsConstructor
-
-public class Membership {
-
+public class AdministratorRole {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "membership_type")
-    private String membershipType;
+    @Column(name = "administrator_id")
+    private Integer admimistratorId;
 
-    private Float price;
-
-//    @OneToMany(mappedBy = "membership")
-//    private Set<CustomerMembership> customerMemberships;
+    @Column(name = "role_id")
+    private Integer roleId;
 }

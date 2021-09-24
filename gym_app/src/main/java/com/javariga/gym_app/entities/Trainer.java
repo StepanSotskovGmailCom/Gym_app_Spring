@@ -27,8 +27,6 @@ public class Trainer {
     private String trainerEmail;
     @Column(name = "Activity_type_id")
     private Integer activityTypeId;
-    @Column(name = "Role_ID")
-    private Integer roleId;
 
 
 
