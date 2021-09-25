@@ -4,13 +4,14 @@ import com.javariga.gym_app.entities.Administrator;
 import com.javariga.gym_app.repository.AdministratorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 
-@RestController
-@RequestMapping(value = "/admin", produces = APPLICATION_JSON_VALUE)
+@Controller
+@RequestMapping( "/admin")
 
 public class AdministratorController {
 

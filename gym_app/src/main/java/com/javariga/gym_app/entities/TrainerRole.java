@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "Trainer_Role")
 @Entity
@@ -19,5 +21,11 @@ public class TrainerRole {
     private String trainerId;
     @Column(name = "role_id")
     private String roleId;
+
+    @OneToMany(mappedBy = "trainerRole",cascade = CascadeType.ALL)
+    private List<Role> roles;
+
+    @OneToMany(mappedBy = "trainerRole", cascade = CascadeType.ALL)
+    private Set<Trainer> trainers;
 
 }

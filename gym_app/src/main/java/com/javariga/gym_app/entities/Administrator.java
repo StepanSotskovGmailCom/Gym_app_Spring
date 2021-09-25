@@ -25,5 +25,7 @@ public class Administrator {
     @Column(name = "Role_ID")
     private String roleId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private AdministratorRole administratorRole;
 
 }

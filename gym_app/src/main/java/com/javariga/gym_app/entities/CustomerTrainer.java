@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "Customer_trainer")
 @Entity
@@ -25,12 +27,13 @@ public class CustomerTrainer {
     @Column(name = "trainer_id")
     private Integer trainerId;
 
-//    @ManyToOne(cascade = CascadeType.ALL) //
-////    @JoinColumn(name="Role_ID")
-//    private Trainer trainer;
-//
-//    @ManyToOne(cascade = CascadeType.ALL) //
-////    @JoinColumn(name="Role_ID")
-//    private Customer customer;
+    @OneToMany(mappedBy = "customerTrainer",cascade = CascadeType.ALL)
+    private List<Customer> customers;
+
+    @OneToMany(mappedBy = "customerTrainer",cascade = CascadeType.ALL)
+    private Set<Trainer> trainers;
+
+
+
 
 }

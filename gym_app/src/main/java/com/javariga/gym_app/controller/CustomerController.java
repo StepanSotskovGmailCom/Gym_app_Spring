@@ -4,12 +4,13 @@ import com.javariga.gym_app.entities.Customer;
 import com.javariga.gym_app.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@RestController
-@RequestMapping(value = "/customer", produces = APPLICATION_JSON_VALUE)
+@Controller
+@RequestMapping("/customer")
 public class CustomerController {
 
 
@@ -21,7 +22,7 @@ public class CustomerController {
     }
 
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    @PostMapping()
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Customer create(@RequestBody Customer customer) {
         return repository.save(customer);

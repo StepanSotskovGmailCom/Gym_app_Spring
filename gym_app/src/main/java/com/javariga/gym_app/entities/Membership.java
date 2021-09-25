@@ -26,6 +26,6 @@ public class Membership {
 
     private Float price;
 
-//    @OneToMany(mappedBy = "membership")
-//    private Set<CustomerMembership> customerMemberships;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CustomerMembership customerMembership;
 }

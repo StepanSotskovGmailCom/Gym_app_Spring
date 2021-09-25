@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "Role")
 @Entity
@@ -22,4 +23,10 @@ public class Role {
 
     @Column(name = "Role")
     private String role;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private AdministratorRole administratorRole;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private TrainerRole trainerRole;
 }

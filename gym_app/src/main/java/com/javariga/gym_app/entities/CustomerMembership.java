@@ -8,6 +8,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
+import java.util.Set;
 
 @Table(name = "Customer_membership")
 @Entity
@@ -31,16 +33,16 @@ public class CustomerMembership {
     private Date membershipEndDate;
     @Column(name ="membership_expiration" )
     private Date membershipExpiration;
-    @Column(name ="memberhip_type" )
+    @Column(name ="membership_type" )
     private String membershipType;
-    @Column(name ="memberhip_price" )
+    @Column(name ="membership_price" )
     private Integer membershipPrice;
 
-//    @ManyToOne
-//    private Customer customer;
-//
-//    @ManyToOne
-//    private Membership membership;
+    @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
+    private Set<Customer> customers;
+
+    @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
+    private List<Membership> memberships;
 
 
 }

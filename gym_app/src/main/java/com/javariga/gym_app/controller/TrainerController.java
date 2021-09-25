@@ -4,12 +4,13 @@ import com.javariga.gym_app.entities.Trainer;
 import com.javariga.gym_app.repository.TrainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@RestController
-@RequestMapping(value = "/trainer", produces = APPLICATION_JSON_VALUE)
+@Controller
+@RequestMapping("/trainer")
 public class TrainerController {
 
     private final TrainerRepository repository;
@@ -19,7 +20,7 @@ public class TrainerController {
         this.repository = repository;
     }
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    @PostMapping()
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Trainer create(@RequestBody Trainer request) {
         return repository.save(request);

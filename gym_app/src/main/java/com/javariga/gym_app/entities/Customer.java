@@ -25,13 +25,17 @@ public class Customer {
     @Column(name = "customer_email")
     private String customerEmail;
 
-//    @OneToMany(mappedBy = "customer")
-//    private Set<CustomerType> customerTypes;
-//
-//    @OneToMany(mappedBy = "customer")
-//    private Set<CustomerTrainers> customerTrainers;
-//
-//    @OneToMany(mappedBy = "customer")
-//    private Set<CustomerMembership> customerMemberships;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CustomerTrainer customerTrainer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CustomerMembership customerMembership;
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private CustomerType customerType;
+
+
 
 }
