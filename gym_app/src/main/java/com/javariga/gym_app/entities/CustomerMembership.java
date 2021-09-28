@@ -23,7 +23,7 @@ public class CustomerMembership {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
     private Long id;
-    @Column(name = "membership_id",insertable=false ,updatable = false)
+    @Column(name = "membership_id")
     private Integer membershipId;
     @Column(name = "customer_id")
     private Integer customerId;
@@ -36,7 +36,7 @@ public class CustomerMembership {
     @Column(name ="membership_type" )
     private String membershipType;
     @Column(name ="membership_price" )
-    private Integer membershipPrice;
+    private Float membershipPrice;
 
     @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
     private Set<Customer> customers;

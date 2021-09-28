@@ -22,10 +22,10 @@ public class TrainerRole {
     @Column(name = "role_id")
     private String roleId;
 
-    @OneToMany(mappedBy = "trainerRole",cascade = CascadeType.ALL)
-    private List<Role> roles;
-
-    @OneToMany(mappedBy = "trainerRole", cascade = CascadeType.ALL)
-    private Set<Trainer> trainers;
+//    @OneToMany(mappedBy = "trainerRole",cascade = CascadeType.ALL)
+//    private List<Role> roles;
+//
+//    @OneToMany(mappedBy = "trainerRole", cascade = CascadeType.ALL)
+//    private Set<Trainer> trainers;
 
 }

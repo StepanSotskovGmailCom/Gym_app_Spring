@@ -24,17 +24,22 @@ public class Customer {
     private String customerSurname;
     @Column(name = "customer_email")
     private String customerEmail;
+    @Column (name = "customer_type_id")
+    private Integer customerTypeId;
+    @Column(name = "trainer_id")
+    private Integer trainerId;
+    @Column(name = "personal_code")
+    private Integer personalCode;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CustomerTrainer customerTrainer;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CustomerMembership customerMembership;
-
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    private CustomerType customerType;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private CustomerTrainer customerTrainer;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private CustomerMembership customerMembership;
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private CustomerType customerType;
 
 
 

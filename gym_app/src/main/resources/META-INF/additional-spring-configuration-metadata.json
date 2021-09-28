@@ -4,5 +4,15 @@
       "name": "database-type",
       "type": "java.lang.String",
       "description": "Description for database-type."
-  }
-] }
+    },
+    {
+      "name": "database-type",
+      "type": "java.lang.String",
+      "description": "Description for database-type."
+    },
+    {
+      "name": "database-type",
+      "type": "java.lang.String",
+      "description": "Description for database-type."
+    }
+  ] }

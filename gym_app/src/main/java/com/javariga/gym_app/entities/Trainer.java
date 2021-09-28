@@ -28,11 +28,11 @@ public class Trainer {
     @Column(name = "Activity_type_id")
     private Integer activityTypeId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private TrainerRole trainerRole;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CustomerTrainer customerTrainer;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private TrainerRole trainerRole;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private CustomerTrainer customerTrainer;
 
 
 
