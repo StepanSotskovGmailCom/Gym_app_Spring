@@ -1,13 +1,12 @@
 package com.javariga.gym_app.controller;
 
 import com.javariga.gym_app.entities.Administrator;
-import com.javariga.gym_app.repository.AdministratorRepository;
+import com.javariga.gym_app.services.AdministratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 
 @Controller
@@ -15,32 +14,32 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 public class AdministratorController {
 
-    private final AdministratorRepository repository;
+    private final AdministratorService service;
 
     @Autowired
-    public AdministratorController(AdministratorRepository repository) {
-        this.repository = repository;
+    public AdministratorController(AdministratorService service) {
+        this.service = service;
     }
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    @PostMapping()
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Administrator create(@RequestBody Administrator request) {
-        return repository.save(request);
+        return service.save(request);
     }
 
     @GetMapping
     public Administrator get(@RequestParam Long id) {
-        return repository.findById(id).get();
+        return service.findById(id).get();
     }
 
     @PutMapping
     public Administrator update(@RequestBody Administrator request) {
-        return repository.save(request);
+        return service.save(request);
     }
 
     @DeleteMapping
     public String delete(@RequestParam Long id) {
-        repository.deleteById(id);
+        service.deleteById(id);
         return "Administrator with ID + " + id + " deleted";
     }
 }

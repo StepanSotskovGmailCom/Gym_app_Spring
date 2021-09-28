@@ -4,10 +4,11 @@ package com.javariga.gym_app.services;
 import com.javariga.gym_app.entities.CustomerMembership;
 import com.javariga.gym_app.repository.CustomerMembershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CustomerMembershipService {
     private final CustomerMembershipRepository repository;
 

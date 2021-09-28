@@ -1,45 +1,41 @@
 package com.javariga.gym_app.controller;
 
 import com.javariga.gym_app.entities.AdministratorRole;
-import com.javariga.gym_app.entities.CustomerMembership;
-import com.javariga.gym_app.repository.AdministratorRoleRepository;
-import com.javariga.gym_app.repository.CustomerMembershipRepository;
+import com.javariga.gym_app.services.AdministratorRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-
 @Controller
 @RequestMapping("/administratorRole")
 public class AdministratorRoleController {
-    private final AdministratorRoleRepository repository;
+    private final AdministratorRoleService service;
 
     @Autowired
-    public AdministratorRoleController(AdministratorRoleRepository repository) {
-        this.repository = repository;
+    public AdministratorRoleController(AdministratorRoleService service) {
+        this.service = service;
     }
 
-    @PostMapping(consumes = APPLICATION_JSON_VALUE)
+    @PostMapping()
     @ResponseStatus(HttpStatus.ACCEPTED)
     public AdministratorRole create(@RequestBody AdministratorRole request) {
-        return repository.save(request);
+        return service.save(request);
     }
 
     @GetMapping
     public AdministratorRole get(@RequestParam Long id) {
-        return repository.findById(id).get();
+        return service.findById(id).get();
     }
 
     @PutMapping
     public AdministratorRole update(@RequestBody AdministratorRole request) {
-        return repository.save(request);
+        return service.save(request);
     }
 
     @DeleteMapping
     public String delete(@RequestParam Long id) {
-        repository.deleteById(id);
+        service.deleteById(id);
         return "AdministratorRole with ID + " + id + " deleted";
     }
 }

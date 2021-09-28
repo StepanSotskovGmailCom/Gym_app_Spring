@@ -5,10 +5,11 @@ import com.javariga.gym_app.entities.AdministratorRole;
 import com.javariga.gym_app.repository.AdministratorRepository;
 import com.javariga.gym_app.repository.AdministratorRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class AdministratorRoleService {
 
     private final AdministratorRoleRepository repository;
