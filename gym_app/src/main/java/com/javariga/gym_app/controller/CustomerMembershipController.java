@@ -2,13 +2,12 @@ package com.javariga.gym_app.controller;
 
 
 import com.javariga.gym_app.entities.CustomerMembership;
-import com.javariga.gym_app.repository.CustomerMembershipRepository;
+import com.javariga.gym_app.services.CustomerMembershipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 
 @Controller
@@ -16,32 +15,32 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 public class CustomerMembershipController {
 
-    private final CustomerMembershipRepository repository;
+    private final CustomerMembershipService service;
 
     @Autowired
-    public CustomerMembershipController(CustomerMembershipRepository repository) {
-        this.repository = repository;
+    public CustomerMembershipController(CustomerMembershipService service) {
+        this.service = service;
     }
 
     @PostMapping()
     @ResponseStatus(HttpStatus.ACCEPTED)
     public CustomerMembership create(@RequestBody CustomerMembership request) {
-        return repository.save(request);
+        return service.save(request);
     }
 
     @GetMapping
     public CustomerMembership get(@RequestParam Long id) {
-        return repository.findById(id).get();
+        return service.findById(id).get();
     }
 
     @PutMapping
     public CustomerMembership update(@RequestBody CustomerMembership request) {
-        return repository.save(request);
+        return service.save(request);
     }
 
     @DeleteMapping
     public String delete(@RequestParam Long id) {
-        repository.deleteById(id);
+        service.deleteById(id);
         return "CustomerMembership with ID + " + id + " deleted";
     }
 }

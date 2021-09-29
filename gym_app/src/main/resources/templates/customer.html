@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/37d01ba303.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">email</th>
+        <th scope="col">name</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        <td scope="row" th:text="${customer.getId()}"></td>
+        <td scope="row" th:text="${customer.getCustomerEmail()}"></td>
+        <td scope="row" th:text="${customer.getCustomerName()}"></td>
+
+        <td>
+            <div class="btn-primary">
+                <a th:href="@{/customer/update/{id}(id=${customer.getId()})}">Edit</a>
+            </div>
+            <div class="btn-danger">
+                <a th:href="@{/customer/delete/{id}(id=${customer.getId()})}">Delete</a>
+            </div>
+        </td>
+    </tbody>
+
+
+</table>
+</body>
+</html>
