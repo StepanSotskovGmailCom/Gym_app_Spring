@@ -24,10 +24,10 @@ public class CustomerType {
     private Integer customerId;
     @Column(name = "c_type_id")
     private Integer cTypeId;
-
-    @OneToMany(mappedBy = "customerType",cascade = CascadeType.ALL)
-    private Set<Customer> customers;
-
-    @OneToMany(mappedBy = "customerType",cascade = CascadeType.ALL)
-    private List<CType> cTypes;
+//
+//    @OneToMany(mappedBy = "customerType",cascade = CascadeType.ALL)
+//    private Set<Customer> customers;
+//
+//    @OneToMany(mappedBy = "customerType",cascade = CascadeType.ALL)
+//    private List<CType> cTypes;
 }

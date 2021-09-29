@@ -1,48 +1,73 @@
 package com.javariga.gym_app.controller;
 
+
+import com.javariga.gym_app.services.CustomerService;
 import com.javariga.gym_app.entities.Customer;
 import com.javariga.gym_app.repository.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+//import com.javariga.gym_app.service.CustomerDetailsService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
+
+import static org.springframework.http.ResponseEntity.ok;
+
+@RequiredArgsConstructor
 
 @Controller
-@RequestMapping("/customer")
+@RequestMapping( "/customer")
 public class CustomerController {
 
 
-    private final CustomerRepository repository;
+    private final CustomerService customerService;
+//    private final CustomerDetailsService customerDetailsService;
 
-    @Autowired
-    public CustomerController(CustomerRepository repository) {
-        this.repository = repository;
+
+    @GetMapping("/add_customer")
+    public String addNewCustomer(@ModelAttribute("customer") Customer customer) {
+//        Customer customer = new Customer();
+        return "customers/add_customer";
     }
-
-
     @PostMapping()
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public Customer create(@RequestBody Customer customer) {
-        return repository.save(customer);
+    public String saveCustomer(@ModelAttribute("customer") @Valid Customer customer,
+                               BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "customers/add_customer";
+        customerService.saveCustomer(customer);
+        return "redirect:/customer";
     }
 
     @GetMapping
-    public Customer getCustomer(@RequestParam Long id) {
-        return repository.findById(id).get();
+    public String getAllCustomers(Model model) {
+        model.addAttribute("all_customers", customerService.findAll());
+        return "customers/customer";
     }
+//    @GetMapping("/new")
+//    public String newCustomer(@ModelAttribute("customer") Customer customer) {
+//        return "customers/new";
+//    }
 
-    @PutMapping
-    public Customer updateCustomer(@RequestBody Customer customer) {
-        return repository.save(customer);
+    @GetMapping("/edit/{id}")
+    public String editCustomer(Model model, @PathVariable("id") long id) {
+        Optional<Customer> customer = customerService.findById(id);
+        model.addAttribute("customer", customer);
+        return "customers/edit_customer";
     }
-
-    @DeleteMapping
-    public String deleteCustomer (@RequestParam Long id) {
-        repository.deleteById(id);
-        return "Customer with ID + " + id + " deleted";
+    @GetMapping("/delete/{id}")
+    public String deleteCustomer(@PathVariable(value = "id") Long id,Model model) {
+        System.out.println(id);
+//        var note = customerService.findById(id)
+//                .orElseThrow(() -> new ResourceNotFoundException("customer"));
+        customerService.deleteById(id);
+        model.addAttribute("customer", customerService.findAll());
+        return "redirect:/customer";
     }
-
-
 }

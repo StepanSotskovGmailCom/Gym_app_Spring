@@ -23,7 +23,7 @@ public class CType {
     @Column(name = "c_type_name")
     private String cTypeName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CustomerType customerType;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private CustomerType customerType;
 
 }

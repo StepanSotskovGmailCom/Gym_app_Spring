@@ -27,11 +27,11 @@ public class CustomerTrainer {
     @Column(name = "trainer_id")
     private Integer trainerId;
 
-    @OneToMany(mappedBy = "customerTrainer",cascade = CascadeType.ALL)
-    private List<Customer> customers;
-
-    @OneToMany(mappedBy = "customerTrainer",cascade = CascadeType.ALL)
-    private Set<Trainer> trainers;
+//    @OneToMany(mappedBy = "customerTrainer",cascade = CascadeType.ALL)
+//    private List<Customer> customers;
+//
+//    @OneToMany(mappedBy = "customerTrainer",cascade = CascadeType.ALL)
+//    private Set<Trainer> trainers;
 
 
 

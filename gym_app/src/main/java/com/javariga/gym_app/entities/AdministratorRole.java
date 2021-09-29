@@ -27,13 +27,13 @@ public class AdministratorRole {
     @Column(name = "role_id")
     private Integer roleId;
 
-    @OneToMany(mappedBy = "administratorRole",cascade = CascadeType.ALL)
-   // @JoinColumn(name = "ID")
-    private Set<Administrator> administrators;
-
-    @OneToMany(mappedBy = "administratorRole", cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "administratorRole",cascade = CascadeType.ALL)
+//   // @JoinColumn(name = "ID")
+//    private Set<Administrator> administrators;
+//
+//    @OneToMany(mappedBy = "administratorRole", cascade = CascadeType.ALL)
 //    //@JoinColumn(name = "Role_ID")
-    private Set<Role> roles;
+//    private Set<Role> roles;
 
 
 }

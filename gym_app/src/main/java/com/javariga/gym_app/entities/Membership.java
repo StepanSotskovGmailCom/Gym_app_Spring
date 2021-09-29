@@ -26,6 +26,6 @@ public class Membership {
 
     private Float price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CustomerMembership customerMembership;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private CustomerMembership customerMembership;
 }

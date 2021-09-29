@@ -37,12 +37,12 @@ public class CustomerMembership {
     private String membershipType;
     @Column(name ="membership_price" )
     private Integer membershipPrice;
-
-    @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
-    private Set<Customer> customers;
-
-    @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
-    private List<Membership> memberships;
+//
+//    @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
+//    private Set<Customer> customers;
+//
+//    @OneToMany(mappedBy = "customerMembership",cascade = CascadeType.ALL)
+//    private List<Membership> memberships;
 
 
 }
