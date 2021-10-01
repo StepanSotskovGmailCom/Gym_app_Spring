@@ -48,17 +48,23 @@ public class CustomerController {
         model.addAttribute("customer", customerService.findById(id));
         return "customers/edit_customer";
     }
-
-
-    @PostMapping("/edit/{id}")
-    public String update( Model model, BindingResult bindingResult,
-                         @PathVariable("id") long id) {
-        Optional<Customer> customer = customerService.findById(id);
+    @PostMapping("/edit")
+    public String updateCustomer(@ModelAttribute("customer")  @Valid Customer customer, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "customers/edit_customer";
-        model.addAttribute("Customer", customer);
+        customerService.saveCustomer(customer);
         return "redirect:/customer";
     }
+
+//    @PostMapping("/edit/{id}")
+//    public String update( Model model, BindingResult bindingResult,
+//                         @PathVariable("id") long id) {
+//        Optional<Customer> customer = customerService.findById(id);
+//        if (bindingResult.hasErrors())
+//            return "customers/edit_customer";
+//        model.addAttribute("Customer", customer);
+//        return "redirect:/customer";
+//    }
 //    @PatchMapping("/edit/{id}")
 //    public String update(@ModelAttribute("customer") @Valid Customer customer, BindingResult bindingResult,    // optional, can create second method
 //                         @PathVariable("id") long id) {                                                        // for saving Optional<Customer> in service
