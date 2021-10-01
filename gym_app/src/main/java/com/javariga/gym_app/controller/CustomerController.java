@@ -37,13 +37,37 @@ public class CustomerController {
         return "customers/add_customer";
     }
     @PostMapping()
-    public String saveCustomer(@ModelAttribute("customer") @Valid Customer customer,
-                               BindingResult bindingResult) {
+    public String saveCustomer(@ModelAttribute("customer")  @Valid Customer customer, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return "customers/add_customer";
         customerService.saveCustomer(customer);
         return "redirect:/customer";
     }
+    @GetMapping("/edit/{id}")
+    public String edit(Model model, @PathVariable("id") long id) {
+        model.addAttribute("customer", customerService.findById(id));
+        return "customers/edit_customer";
+    }
+
+
+    @PostMapping("/edit/{id}")
+    public String update( Model model, BindingResult bindingResult,
+                         @PathVariable("id") long id) {
+        Optional<Customer> customer = customerService.findById(id);
+        if (bindingResult.hasErrors())
+            return "customers/edit_customer";
+        model.addAttribute("Customer", customer);
+        return "redirect:/customer";
+    }
+//    @PatchMapping("/edit/{id}")
+//    public String update(@ModelAttribute("customer") @Valid Customer customer, BindingResult bindingResult,    // optional, can create second method
+//                         @PathVariable("id") long id) {                                                        // for saving Optional<Customer> in service
+//        Optional<Customer> updatedCustomer = customerService.findById(id);
+//        if (bindingResult.hasErrors())
+//            return "customers/edit_customer";
+//        customerService.saveCustomer(updatedCustomer);
+//        return "redirect:/customer";
+//    }
 
     @GetMapping
     public String getAllCustomers(Model model) {
@@ -55,12 +79,12 @@ public class CustomerController {
 //        return "customers/new";
 //    }
 
-    @GetMapping("/edit/{id}")
-    public String editCustomer(Model model, @PathVariable("id") long id) {
-        Optional<Customer> customer = customerService.findById(id);
-        model.addAttribute("customer", customer);
-        return "customers/edit_customer";
-    }
+//    @GetMapping("/edit/{id}")
+//    public String editCustomer(Model model, @PathVariable("id") long id) {
+//        Optional<Customer> customer = customerService.findById(id);
+//        model.addAttribute("customer", customer);
+//        return "customers/edit_customer";
+//    }
     @GetMapping("/delete/{id}")
     public String deleteCustomer(@PathVariable(value = "id") Long id,Model model) {
         System.out.println(id);

@@ -1,72 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/37d01ba303.js"></script>
     <meta charset="UTF-8">
     <title>Edit Customer</title>
 </head>
 <body>
-<h2 style="color: aqua; text-align: center" >Edit here</h2>
+<h2 style="color: aqua; text-align: center">Edit here</h2>
 
 <form action="#" th:action="@{/customers/save_customer}">
 
 </form>
 
-<!--<div class="col-md-4">-->
+<div class="col-md-4">
 
 
-<!--    <form action="#" th:action="@{/clients/save_client}" name="Add new client" th:object="${client}" method="POST">-->
-<!--        <input type="hidden" th:field="*{id}">-->
+    <form action="#" th:action="@{/customer}" name="Add new customer" th:object="${customer}" th:method="POST">
+        <input th:field="*{id}" type="hidden">
 
-<!--        <div class="mb-3">-->
-<!--            <label for="firstName" class="form-label">First name</label>-->
-<!--            <input type="text" class="form-control" id="firstName"   aria-describedby="emailHelp"  th:field="*{firstName}">-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="lastName" class="form-label">Last name</label>-->
-<!--            <input type="text" class="form-control" id="lastName" th:field="*{lastName}">-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="userName" class="form-label">Username</label>-->
-<!--            <input type="text" class="form-control" id="userName" th:field="*{userName}" required>-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="userPassword" class="form-label">User password</label>-->
-<!--            <input type="password" class="form-control" id="userPassword" th:field="*{userPassword}" required>-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="exampleFormControlInputRole" class="form-label">Role</label>-->
-<!--            <select name="userRole" class="form-control" id="exampleFormControlInputRole" th:field="*{userRole}" required>-->
-<!--                <option value="ROLE_USER">USER</option>-->
-<!--                <option value="ROLE_ADMIN">ADMIN</option>-->
-<!--            </select>-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="phoneNumber" class="form-label">Phone number</label>-->
-<!--            <input type="text" class="form-control" id="phoneNumber" aria-describedby="emailHelp"  th:field="*{phoneNumber}">-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="email" class="form-label">Email</label>-->
-<!--            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"   th:field="*{email}">-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="address" class="form-label">Home address</label>-->
-<!--            <input type="text" class="form-control" id="address" aria-describedby="emailHelp"   th:field="*{address}">-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="birthDate" class="form-label">Birth date</label>-->
-<!--            <input type="date" class="form-control" id="birthDate" aria-describedby="emailHelp"   th:field="*{birthDate}">-->
-<!--        </div>-->
-<!--        <div class="mb-3">-->
-<!--            <label for="gender" class="form-label">Gender</label>-->
-<!--            <input type="text" class="form-control" id="gender" aria-describedby="emailHelp"   th:field="*{gender}">-->
-<!--        </div>-->
+        <div class="mb-3">
+            <label class="form-label" for="customerName">First name</label>
+            <input aria-describedby="emailHelp" class="form-control" id="customerName" th:field="*{customerName}"
+                   type="text">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="customerSurname">Last name</label>
+            <input class="form-control" id="customerSurname" th:field="*{customerSurname}" type="text">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="personal_code">Personal code</label>
+            <input class="form-control" id="personal_code" required th:field="*{personalCode}" type="text">
+<!--            <div style="color: red" th:errors="*{personalCode}" th:if="${#fields.hasErrors('personalCode')}">-->
+<!--                Personal code error-->
+<!--            </div>-->
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input aria-describedby="emailHelp" class="form-control" id="email" th:field="*{customerEmail}" type="email">
+        </div>
 
-
-<!--        <button type="submit" class="btn btn-primary">Submit</button>-->
-<!--    </form>-->
-<!--</div>-->
-<!--</div>-->
-
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
 
 
 <br>

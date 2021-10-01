@@ -3,12 +3,10 @@ package com.javariga.gym_app.services;
 import com.javariga.gym_app.entities.Customer;
 import com.javariga.gym_app.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @RequiredArgsConstructor
 @Service
@@ -25,6 +23,11 @@ public class CustomerService {
     public void deleteById(Long id) {
         customerRepository.deleteById(id);
     }
+//    public void updateCustomer(Customer customer, long id) {
+//        Customer updatedCustomer = customerRepository.findById(id);
+//        updatedCustomer.customer
+//        customerRepository.update(customer);
+//    }
 
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save(customer);

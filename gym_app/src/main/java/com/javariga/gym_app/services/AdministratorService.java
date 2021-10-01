@@ -27,9 +27,9 @@ public class AdministratorService {
     }
 
 
-    public Administrator findByName(String name) {
-        return repository.findByAdministratorName(name);
-    }
+//    public Administrator findByName(String name) {
+//        return repository.findByAdministratorName(name);
+//    }
 
     public Administrator save(Administrator administrator) {
         return repository.save(administrator);
