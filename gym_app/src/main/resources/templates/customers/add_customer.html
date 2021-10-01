@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <link href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/37d01ba303.js"></script>
     <meta charset="UTF-8">
@@ -13,40 +13,40 @@
     <div class="col-md-4">
 
 
-        <form action="#" th:action="@{/customer}" name="Add new customer" th:object="${customer}" th:method="POST">
+        <form action="#" name="Add new customer" th:action="@{/customer}" th:method="POST" th:object="${customer}">
             <div class="mb-3">
-                <label for="customerName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="customerName" aria-describedby="emailHelp"
-                       th:field="*{customerName}" required>
-                <div style="color: red" th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}">Name
+                <label class="form-label" for="customerName">Name</label>
+                <input aria-describedby="emailHelp" class="form-control" id="customerName" required
+                       th:field="*{customerName}" type="text">
+                <div style="color: red" th:errors="*{customerName}" th:if="${#fields.hasErrors('customerName')}">Name
                     error
                 </div>
             </div>
             <div class="mb-3">
-                <label for="lastName" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lastName" th:field="*{customerSurname}" required>
-                <div style="color: red" th:if="${#fields.hasErrors('customerSurname')}" th:errors="*{customerSurname}">
+                <label class="form-label" for="lastName">Last name</label>
+                <input class="form-control" id="lastName" required th:field="*{customerSurname}" type="text">
+                <div style="color: red" th:errors="*{customerSurname}" th:if="${#fields.hasErrors('customerSurname')}">
                     Surname error
                 </div>
 
             </div>
             <div class="mb-3">
-                <label for="personal_code" class="form-label">Personal code</label>
-                <input type="text" class="form-control" id="personal_code" th:field="*{personalCode}" required>
-                <div style="color: red" th:if="${#fields.hasErrors('personalCode')}" th:errors="*{personalCode}">
+                <label class="form-label" for="personal_code">Personal code</label>
+                <input class="form-control" id="personal_code" required th:field="*{personalCode}" type="text">
+                <div style="color: red" th:errors="*{personalCode}" th:if="${#fields.hasErrors('personalCode')}">
                     Personal code error
                 </div>
 
             </div>
 
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                       th:field="*{customerEmail}" required>
+                <label class="form-label" for="email">Email</label>
+                <input aria-describedby="emailHelp" class="form-control" id="email" required
+                       th:field="*{customerEmail}" type="email">
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary" type="submit">Submit</button>
         </form>
     </div>
 </div>

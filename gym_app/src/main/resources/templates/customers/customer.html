@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/37d01ba303.js"></script>
 
@@ -15,8 +15,8 @@
 </a>
 <br>
 <div class="input-group rounded">
-    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-           aria-describedby="search-addon"/>
+    <input aria-describedby="search-addon" aria-label="Search" class="form-control rounded" placeholder="Search"
+           type="search"/>
     <span class="input-group-text border-0" id="search-addon">
     <i class="fas fa-search"></i>
   </span>
@@ -44,8 +44,8 @@
         <td scope="row" th:text="${customer.getCustomerEmail()}"></td>
         <td>
             <a th:href="@{'/customer/edit/' + ${customer.id}}">Edit</a>
-            &nbsp;&nbsp;&nbsp;
-            <td><a th:href="@{/customer/delete/{id}(id=${customer.getId()})}" class="btn btn-primary"><i class="fas fa-trash"></i></a></td>
+        <td><a class="btn btn-primary" th:href="@{/customer/delete/{id}(id=${customer.getId()})}"><i
+                class="fas fa-trash"></i></a></td>
         </td>
     </tr>
     </tbody>
